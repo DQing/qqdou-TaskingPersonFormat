@@ -2,6 +2,7 @@ package com.thoughtworks;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class Application {
     List<String> getFormatNames(String input) {
@@ -13,5 +14,9 @@ class Application {
             result.add(finalName);
         }
         return result;
+    }
+
+    List<Person> getSortedPersons(List<String> formatNames) {
+        return formatNames.stream().sorted().map(Person::new).collect(Collectors.toList());
     }
 }
