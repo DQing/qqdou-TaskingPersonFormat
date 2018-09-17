@@ -1,9 +1,7 @@
 package com.thoughtworks;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Period;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,5 +30,16 @@ class ApplicationTest {
         //then
         List<Person> excepted = Arrays.asList(new Person("HUANG,LIZHENG"), new Person("ZUO,PEIXI"));
         assertIterableEquals(excepted, persons);
+    }
+
+    @Test
+    void should_get_person_name_sort_and_format() {
+        String input = "huang lizheng,zuo peixi,dou qingqing,liu yanping";
+        List<Person> peoples = application.getPersons(input);
+        List<Person> excepted = Arrays.asList(new Person("DOU,QINGQING")
+                , new Person("HUANG,LIZHENG")
+                , new Person("LIU,YANPING")
+                , new Person("ZUO,PEIXI"));
+        assertIterableEquals(excepted, peoples);
     }
 }

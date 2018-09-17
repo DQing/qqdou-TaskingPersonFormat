@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class Application {
+    List<Person> getPersons(String input) {
+        List<String> formatNames = getFormatNames(input);
+        return getSortedPersons(formatNames);
+    }
+
     List<String> getFormatNames(String input) {
         List<String> result = new ArrayList<>();
         String[] names = input.split(",");
