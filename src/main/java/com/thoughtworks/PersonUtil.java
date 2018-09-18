@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class Application {
+class PersonUtil {
     List<Person> getPersons(String input) {
         List<String> formatNames = getFormatNames(input);
         return getSortedPersons(formatNames);
